@@ -1,0 +1,22 @@
+{
+  "name": "@mizant/domain",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./issuance-lifecycle": "./src/issuance-lifecycle.ts",
+    "./sme-submission": "./src/sme-submission.ts",
+    "./tokenisation": "./src/tokenisation.ts"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "3.2.7"
+  }
+}

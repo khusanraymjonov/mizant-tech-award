@@ -1,0 +1,30 @@
+{
+  "name": "@mizant/database",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "prisma generate",
+    "dev": "prisma studio",
+    "lint": "prisma validate && tsc -p tsconfig.json",
+    "typecheck": "prisma validate && tsc -p tsconfig.json",
+    "test": "prisma validate",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:migrate:deploy": "prisma migrate deploy",
+    "db:seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@mizant/testing": "workspace:*",
+    "@prisma/client": "6.19.3"
+  },
+  "devDependencies": {
+    "@types/node": "22.17.2",
+    "prisma": "6.19.3",
+    "tsx": "4.20.4",
+    "typescript": "5.9.2"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  }
+}

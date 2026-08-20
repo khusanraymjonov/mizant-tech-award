@@ -1,0 +1,11 @@
+{
+  "name": "@mizant/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "node -e \"console.log('Production smart contracts intentionally disabled')\"",
+    "lint": "node -e \"console.log('No contracts in P0')\"",
+    "typecheck": "node -e \"console.log('No contracts in P0')\"",
+    "test": "node -e \"console.log('No contracts in P0')\""
+  }
+}

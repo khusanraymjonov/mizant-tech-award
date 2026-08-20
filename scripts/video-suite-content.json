@@ -1,0 +1,344 @@
+{
+  "disclaimer": "For demonstration only. Fictional data; no live payments, investments, custody, identity checks or digital assets. Not investment, legal or Shariah advice.",
+  "videos": [
+    {
+      "slug": "introducing-mizant",
+      "title": "Introducing Mizant",
+      "subtitle": "Real assets. Clear rights. Ethical access.",
+      "audience": "All platform participants",
+      "target_duration": 60,
+      "beats": [
+        {
+          "image": "demo",
+          "heading": "Real assets can be difficult to access",
+          "body": "High minimums, complex structures and unclear ownership can make opportunities difficult to understand."
+        },
+        {
+          "image": "opportunity-structure",
+          "heading": "Mizant connects the full journey",
+          "body": "SMEs, originators, investors and independent reviewers work through one structured opportunity lifecycle."
+        },
+        {
+          "image": "applications",
+          "heading": "Evidence begins with the asset",
+          "body": "The business need, productive asset and supporting documents are prepared as a controlled submission."
+        },
+        {
+          "image": "governance",
+          "heading": "Independent review stays visible",
+          "body": "Legal, risk, compliance and Shariah decisions remain separate, attributable and connected to the reviewed version."
+        },
+        {
+          "image": "opportunity-risk",
+          "heading": "Investors see rights and risks",
+          "body": "Opportunity pages explain the asset, parties, cash-flow source, key risks and evidence status before any next step."
+        },
+        {
+          "image": "tokenisation",
+          "heading": "Tokenisation follows approval",
+          "body": "Digital units are prepared only after human gates, fixed-supply checks and maker-checker approval."
+        },
+        {
+          "image": "ownership",
+          "heading": "Ownership remains reconcilable",
+          "body": "Digital records connect to the controlled ownership register and a complete audit trail."
+        }
+      ],
+      "closing_title": "Real assets. Clear rights. Ethical access.",
+      "closing_subtitle": "Explore Mizant through the workspace that matches your role."
+    },
+    {
+      "slug": "investor-platform-walkthrough",
+      "title": "Mizant platform walkthrough",
+      "subtitle": "A clear investor journey from access to an attributable demonstration record",
+      "audience": "Investors and professional advisers",
+      "target_duration": 120,
+      "beats": [
+        {
+          "image": "start",
+          "heading": "Choose the Investor workspace",
+          "body": "Start with the role that matches your task. The platform explains the journey before you request access."
+        },
+        {
+          "image": "start",
+          "heading": "Use the demonstration profile",
+          "body": "Request fictional preview access, then open the workspace. No live identity provider is connected."
+        },
+        {
+          "image": "demo",
+          "heading": "Begin with the next action",
+          "body": "The dashboard prioritises one useful next step and keeps role-specific navigation easy to find."
+        },
+        {
+          "image": "opportunities",
+          "heading": "Find an available opportunity",
+          "body": "Status labels distinguish the reviewable reference case from opportunities that are still in diligence."
+        },
+        {
+          "image": "opportunity-structure",
+          "heading": "Understand the asset and structure",
+          "body": "Review the equipment, project vehicle, SME relationship and the rights represented by each digital unit."
+        },
+        {
+          "image": "opportunity-risk",
+          "heading": "Read the risks before scenarios",
+          "body": "Operating, asset, liquidity and structural risks appear before illustrative cash-flow outcomes."
+        },
+        {
+          "image": "opportunity-documents",
+          "heading": "Check the evidence status",
+          "body": "Each document is marked recorded, draft or conditional so incomplete evidence stays visible."
+        },
+        {
+          "image": "subscribe",
+          "heading": "Complete the comprehension step",
+          "body": "Choose an illustrative amount and confirm the rights, liquidity limits and cash-flow dependency."
+        },
+        {
+          "image": "portfolio",
+          "heading": "Create an attributable record",
+          "body": "The demonstration receipt connects the amount, disclosure version and environment without moving money."
+        },
+        {
+          "image": "learn",
+          "heading": "Return to guidance at any time",
+          "body": "The Learning Centre provides short role guides, plain-language definitions and observable next actions."
+        }
+      ],
+      "closing_title": "Understand first. Act with a clear record.",
+      "closing_subtitle": "Open the Investor workspace to complete the demonstration journey."
+    },
+    {
+      "slug": "choosing-your-workspace",
+      "title": "Choosing your Mizant workspace",
+      "subtitle": "Select the perspective that matches your task",
+      "audience": "Investors, SMEs and originators",
+      "target_duration": 30,
+      "beats": [
+        {
+          "image": "start",
+          "heading": "Choose Investor",
+          "body": "Explore opportunities, review evidence and follow a controlled demonstration commitment."
+        },
+        {
+          "image": "applications",
+          "heading": "Choose SME",
+          "body": "Describe a productive asset need, provide evidence and follow the human-review status."
+        },
+        {
+          "image": "origination",
+          "heading": "Choose Originator",
+          "body": "Support an SME, resolve evidence gaps and hand a review-ready case to independent teams."
+        },
+        {
+          "image": "demo",
+          "heading": "Your guidance follows your role",
+          "body": "Navigation and next actions adapt to the selected workspace while permissions remain controlled."
+        }
+      ]
+    },
+    {
+      "slug": "demonstration-profile",
+      "title": "Creating your demonstration profile",
+      "subtitle": "Enter the safe preview without using personal information",
+      "audience": "Investors, SMEs and originators",
+      "target_duration": 34,
+      "beats": [
+        {
+          "image": "start",
+          "heading": "Keep the fictional details",
+          "body": "The supplied profile is demonstration data. Never enter real personal or confidential information."
+        },
+        {
+          "image": "start",
+          "heading": "Confirm the workspace",
+          "body": "Check that Investor, SME or Originator matches the journey you want to explore."
+        },
+        {
+          "image": "start",
+          "heading": "Request preview access",
+          "body": "The request creates a demonstration approval record rather than contacting a live identity service."
+        },
+        {
+          "image": "demo",
+          "heading": "Open your workspace",
+          "body": "Continue to the role dashboard and follow the highlighted next action."
+        }
+      ]
+    },
+    {
+      "slug": "dashboard-navigation",
+      "title": "Finding your way around the dashboard",
+      "subtitle": "Next action, navigation and role context",
+      "audience": "All roles",
+      "target_duration": 34,
+      "beats": [
+        {
+          "image": "demo",
+          "heading": "Start with the next action",
+          "body": "The dashboard brings the most useful task to the top of the page."
+        },
+        {
+          "image": "applications",
+          "heading": "Use role-specific navigation",
+          "body": "Each workspace shows the tools and records relevant to that participant."
+        },
+        {
+          "image": "origination",
+          "heading": "Switch perspective safely",
+          "body": "The workspace selector demonstrates another role without silently expanding permissions."
+        },
+        {
+          "image": "learn",
+          "heading": "Choose Learn whenever needed",
+          "body": "Short procedures explain the responsible person, required actions and expected result."
+        }
+      ]
+    },
+    {
+      "slug": "reviewing-an-opportunity",
+      "title": "Finding and reviewing an opportunity",
+      "subtitle": "Check status and evidence before acting",
+      "audience": "Investors and professional advisers",
+      "target_duration": 38,
+      "beats": [
+        {
+          "image": "opportunities",
+          "heading": "Check the opportunity status",
+          "body": "Only the reference case is available for review; incomplete pipeline cases remain unavailable."
+        },
+        {
+          "image": "opportunities",
+          "heading": "Read the headline terms",
+          "body": "Asset pool, proposed term and unit reference are clearly marked as illustrative."
+        },
+        {
+          "image": "opportunity-top",
+          "heading": "Open the detailed review",
+          "body": "The full page brings the asset, parties, rights, risks and documents into one journey."
+        },
+        {
+          "image": "opportunity-structure",
+          "heading": "Understand what each unit means",
+          "body": "Digital units represent approved rights within the structure; they are not the physical asset itself."
+        }
+      ]
+    },
+    {
+      "slug": "documents-and-information",
+      "title": "Reviewing documents and key information",
+      "subtitle": "Asset, structure, risks and evidence status",
+      "audience": "Investors, advisers and reviewers",
+      "target_duration": 40,
+      "beats": [
+        {
+          "image": "opportunity-top",
+          "heading": "Start with the information basis",
+          "body": "Check the information date and whether each statement is recorded, illustrative or conditional."
+        },
+        {
+          "image": "opportunity-structure",
+          "heading": "Follow the parties and rights",
+          "body": "See who owns, uses, reviews and administers the asset and related records."
+        },
+        {
+          "image": "opportunity-risk",
+          "heading": "Review what could go wrong",
+          "body": "Read operating, asset, liquidity and structural risks before considering any scenario."
+        },
+        {
+          "image": "opportunity-documents",
+          "heading": "Inspect the document status",
+          "body": "Recorded, draft and conditional labels reveal what is complete and what still requires approval."
+        }
+      ]
+    },
+    {
+      "slug": "investor-next-step",
+      "title": "Completing the next investor step",
+      "subtitle": "Understand before confirming",
+      "audience": "Investors",
+      "target_duration": 38,
+      "beats": [
+        {
+          "image": "opportunity-top",
+          "heading": "Continue only after review",
+          "body": "Open the commitment step after understanding the asset, rights, risks and evidence status."
+        },
+        {
+          "image": "subscribe",
+          "heading": "Choose an illustrative amount",
+          "body": "The amount is used only to demonstrate the workflow; no payment or investment is created."
+        },
+        {
+          "image": "subscribe",
+          "heading": "Confirm comprehension",
+          "body": "Acknowledge the rights, liquidity limits and dependence on rent actually received."
+        },
+        {
+          "image": "portfolio",
+          "heading": "Review the resulting record",
+          "body": "The receipt links the amount, disclosure version and audit reference in the demonstration environment."
+        }
+      ]
+    },
+    {
+      "slug": "submitting-an-opportunity",
+      "title": "Submitting an opportunity for human review",
+      "subtitle": "Three guided steps with independent review",
+      "audience": "SMEs and originators",
+      "target_duration": 40,
+      "beats": [
+        {
+          "image": "applications",
+          "heading": "Describe the fictional business",
+          "body": "Start with the operating need, business context and responsible demonstration contact."
+        },
+        {
+          "image": "application-new",
+          "heading": "Define the productive asset",
+          "body": "Explain the equipment, intended use and why the business needs it."
+        },
+        {
+          "image": "origination",
+          "heading": "Complete the evidence checklist",
+          "body": "Confirm each fictional evidence placeholder and the safe-submission declaration."
+        },
+        {
+          "image": "reviews",
+          "heading": "Submit for independent review",
+          "body": "Legal, compliance and Shariah reviewers receive separate tasks. Submission is not approval."
+        }
+      ]
+    },
+    {
+      "slug": "guidance-and-status",
+      "title": "Getting guidance and reading status indicators",
+      "subtitle": "Clear procedures and observable next actions",
+      "audience": "All roles",
+      "target_duration": 34,
+      "beats": [
+        {
+          "image": "learn",
+          "heading": "Choose a role guide",
+          "body": "Each guide explains the actions, responsible person and result you should expect."
+        },
+        {
+          "image": "demo",
+          "heading": "Read the status first",
+          "body": "Status chips show what has happened, what is waiting and which action comes next."
+        },
+        {
+          "image": "governance",
+          "heading": "Follow the audit reference",
+          "body": "Decisions remain attributable and connected to the relevant record version."
+        },
+        {
+          "image": "reviews",
+          "heading": "Keep human approval visible",
+          "body": "Review queues make clear who is responsible and prevent one participant from self-approving."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Organisation {
+  id          String       @id
+  name        String
+  synthetic   Boolean      @default(true)
+  memberships Membership[]
+  auditEvents AuditEvent[]
+  createdAt   DateTime     @default(now())
+}
+
+model User {
+  id          String       @id @default(uuid())
+  email       String       @unique
+  status      String       @default("active")
+  mfaPolicy   String       @default("optional")
+  memberships Membership[]
+  createdAt   DateTime     @default(now())
+}
+
+model AccessRequest {
+  id               String    @id
+  name             String
+  email            String
+  organisationName String
+  requestedRole    String
+  purpose          String
+  status           String    @default("pending")
+  submittedAt      DateTime  @default(now())
+  reviewedAt       DateTime?
+  reviewedBy       String?
+  decisionReason   String?
+  synthetic        Boolean   @default(true)
+
+  @@index([status, submittedAt])
+  @@index([email])
+}
+
+model Membership {
+  id             String       @id @default(uuid())
+  userId         String
+  organisationId String
+  role           String
+  effectiveFrom  DateTime     @default(now())
+  revokedAt      DateTime?
+  user           User         @relation(fields: [userId], references: [id])
+  organisation   Organisation @relation(fields: [organisationId], references: [id])
+
+  @@unique([userId, organisationId, role])
+}
+
+model AuditEvent {
+  id                String       @id @default(uuid())
+  occurredAt        DateTime     @default(now())
+  actorId           String
+  actorKind         String
+  actorRoles        Json
+  organisationId    String
+  objectType        String
+  objectId          String
+  action            String
+  previousReference String?
+  newReference      String?
+  requestId         String
+  source            String
+  organisation      Organisation @relation(fields: [organisationId], references: [id])
+
+  @@index([organisationId, occurredAt])
+  @@index([objectType, objectId])
+}
+
+model OutboxEvent {
+  id            String    @id @default(uuid())
+  topic         String
+  aggregateType String
+  aggregateId   String
+  payload       Json
+  createdAt     DateTime  @default(now())
+  processedAt   DateTime?
+  attempts      Int       @default(0)
+}
+
+model ApprovalRequest {
+  id             String    @id @default(uuid())
+  organisationId String
+  action         String
+  objectType     String
+  objectId       String
+  makerId        String
+  checkerId      String?
+  status         String    @default("pending")
+  createdAt      DateTime  @default(now())
+  decidedAt      DateTime?
+
+  @@index([organisationId, status])
+}
+
+model AssetPool {
+  id        String  @id
+  name      String
+  version   Int     @default(1)
+  synthetic Boolean @default(true)
+}
+
+model LegalStructure {
+  id             String @id
+  templateKey    String
+  version        Int    @default(1)
+  approvalStatus String
+}
+
+model Instrument {
+  id               String @id
+  legalStructureId String
+  targetUnits      BigInt
+  unitPriceMinor   BigInt
+  currency         String
+}
+
+model RightsVersion {
+  id           String   @id
+  instrumentId String
+  version      Int
+  rights       Json
+  createdAt    DateTime @default(now())
+
+  @@unique([instrumentId, version])
+}
+
+model RegisterAuthority {
+  id             String  @id
+  instrumentId   String
+  authorityType  String
+  providerMode   String  @default("mock")
+  legalAuthority Boolean @default(false)
+}
+
+model RegisterPosition {
+  id               String   @id @default(uuid())
+  instrumentId     String
+  accountReference String
+  holderReference  String
+  units            BigInt
+  frozenUnits      BigInt   @default(0)
+  status           String
+  version          Int      @default(1)
+  synthetic        Boolean  @default(true)
+  updatedAt        DateTime @updatedAt
+
+  @@unique([instrumentId, accountReference, version])
+  @@index([instrumentId, holderReference])
+}
+
+model DigitalUnitInstruction {
+  id                 String    @id @default(uuid())
+  reference          String    @unique
+  organisationId     String
+  instrumentId       String
+  operation          String
+  quantity           BigInt
+  sourceAccount      String?
+  destinationAccount String?
+  policyVersion      Int
+  makerId            String
+  checkerId          String?
+  status             String    @default("prepared")
+  idempotencyKey     String    @unique
+  providerMode       String    @default("off_chain_simulation")
+  providerReference  String?
+  blockingReasons    Json
+  synthetic          Boolean   @default(true)
+  createdAt          DateTime  @default(now())
+  decidedAt          DateTime?
+
+  @@index([organisationId, status])
+  @@index([instrumentId, createdAt])
+}
+
+model IssuanceCase {
+  id                        String                   @id
+  organisationId            String
+  stage                     String
+  version                   Int                      @default(1)
+  assetPoolId               String
+  legalStructureId          String
+  instrumentId              String
+  rightsVersionId           String
+  economicsVersionId        String
+  disclosureVersionId       String
+  officialRegisterAuthority String
+  targetUnits               BigInt
+  unitPriceMinor            BigInt
+  currency                  String
+  confirmedUnits            BigInt                   @default(0)
+  synthetic                 Boolean                  @default(true)
+  createdAt                 DateTime                 @default(now())
+  updatedAt                 DateTime                 @updatedAt
+  approvals                 IssuanceApprovalRecord[]
+  events                    IssuanceLifecycleEvent[]
+
+  @@index([organisationId, stage])
+  @@index([instrumentId])
+}
+
+model IssuanceApprovalRecord {
+  id                String       @id @default(uuid())
+  issuanceCaseId    String
+  lane              String
+  actorId           String
+  actorRole         String
+  evidenceReference String
+  recordedAt        DateTime     @default(now())
+  issuanceCase      IssuanceCase @relation(fields: [issuanceCaseId], references: [id])
+
+  @@unique([issuanceCaseId, lane])
+}
+
+model IssuanceLifecycleEvent {
+  id                String       @id @default(uuid())
+  issuanceCaseId    String
+  sequence          Int
+  action            String
+  actorId           String
+  actorRole         String
+  objectVersion     Int
+  evidenceReference String
+  occurredAt        DateTime     @default(now())
+  issuanceCase      IssuanceCase @relation(fields: [issuanceCaseId], references: [id])
+
+  @@unique([issuanceCaseId, sequence])
+  @@index([action, occurredAt])
+}
+
+model ShariahReviewCase {
+  id                 String             @id
+  organisationId     String
+  offeringReference  String
+  methodologyVersion String
+  reviewerId         String?
+  independenceStatus String
+  decision           String
+  effectiveAt        DateTime?
+  nextReviewAt       DateTime?
+  opinionReference   String?
+  synthetic          Boolean            @default(true)
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  conditions         ShariahCondition[]
+
+  @@index([organisationId, decision])
+  @@index([nextReviewAt])
+}
+
+model ShariahCondition {
+  id           String            @id @default(uuid())
+  reviewCaseId String
+  code         String
+  title        String
+  status       String
+  severity     String
+  ownerId      String
+  evidenceRef  String?
+  dueAt        DateTime?
+  resolvedAt   DateTime?
+  reviewCase   ShariahReviewCase @relation(fields: [reviewCaseId], references: [id])
+
+  @@unique([reviewCaseId, code])
+  @@index([status, dueAt])
+}
+
+model SmeApplicationRecord {
+  id                       String                  @id
+  reference                String                  @unique
+  organisationId           String
+  originatorOrganisationId String
+  policyId                 String
+  policyVersion            Int
+  currentVersion           Int
+  status                   String
+  synthetic                Boolean                 @default(true)
+  createdAt                DateTime                @default(now())
+  updatedAt                DateTime                @updatedAt
+  versions                 SmeApplicationVersion[]
+  evidence                 SmeEvidenceVersion[]
+  reviews                  GovernanceReview[]
+
+  @@index([organisationId, status])
+}
+
+model SmeApplicationVersion {
+  id            String               @id @default(uuid())
+  applicationId String
+  version       Int
+  payload       Json
+  status        String
+  actorId       String
+  createdAt     DateTime             @default(now())
+  application   SmeApplicationRecord @relation(fields: [applicationId], references: [id])
+
+  @@unique([applicationId, version])
+}
+
+model SmeEvidenceVersion {
+  id            String               @id @default(uuid())
+  applicationId String
+  evidenceType  String
+  version       Int
+  status        String
+  explanation   String
+  synthetic     Boolean              @default(true)
+  createdAt     DateTime             @default(now())
+  application   SmeApplicationRecord @relation(fields: [applicationId], references: [id])
+
+  @@unique([applicationId, evidenceType, version])
+}
+
+model GovernanceReview {
+  id            String               @id @default(uuid())
+  applicationId String
+  lane          String
+  reviewerId    String?
+  decision      String               @default("pending")
+  conditions    Json
+  comments      Json
+  decidedAt     DateTime?
+  application   SmeApplicationRecord @relation(fields: [applicationId], references: [id])
+
+  @@unique([applicationId, lane])
+}

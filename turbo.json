@@ -1,0 +1,22 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalPassThroughEnv": [
+    "DATABASE_URL",
+    "VERCEL",
+    "VERCEL_ENV",
+    "APP_DATA_MODE",
+    "ENABLE_REAL_PAYMENTS",
+    "ENABLE_LIVE_KYC",
+    "ENABLE_PRODUCTION_CHAIN",
+    "ENABLE_PREVIEW_GATE",
+    "PREVIEW_ACCESS_USERNAME",
+    "PREVIEW_ACCESS_PASSWORD"
+  ],
+  "tasks": {
+    "build": { "dependsOn": ["^build"], "outputs": [".next/**", "dist/**"] },
+    "dev": { "cache": false, "persistent": true },
+    "lint": { "dependsOn": ["^lint"] },
+    "typecheck": { "dependsOn": ["^typecheck"] },
+    "test": { "dependsOn": ["^build"], "outputs": ["coverage/**"] }
+  }
+}
