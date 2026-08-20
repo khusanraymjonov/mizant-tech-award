@@ -1,4 +1,10 @@
-# Mizant platform
+# Mizant Platform
+
+**President Tech Award 2026 Submission**
+
+🌐 **Live MVP:** https://mizant.vercel.app/
+
+Mizant is a governance-first, Shariah-aligned platform for real-asset investment, combining tokenisation, controlled digital ownership, transparent servicing and AI-assisted workflows.
 
 Secure, synthetic MVP foundation for Mizant's governed productive-asset investment workflow.
 
