@@ -1,0 +1,28 @@
+{
+  "name": "@mizant/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "prebuild": "node ../../scripts/verify-preview-readiness.mjs",
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@mizant/domain": "workspace:*",
+    "@mizant/testing": "workspace:*",
+    "@mizant/ui": "workspace:*",
+    "next": "15.5.23",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.17.2",
+    "@types/react": "19.1.10",
+    "@types/react-dom": "19.1.7",
+    "vitest": "3.2.7"
+  }
+}
